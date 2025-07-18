@@ -1,0 +1,36 @@
+public class demo{
+    public static void main(String[] args){
+        int[] num={12,4,234,1234};
+        System.out.println(count_even(num));
+    }
+    static int count_even(int[] num){
+        int count=0;
+        for(int i:num){
+            if(even_num(i)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static boolean even_num(int num){
+        int numberdigit=digitCount(num);
+        return numberdigit%2==0;
+    }
+
+    static int digitCount(int num){
+       int count=0;
+       if(num<0){
+           num=num*-1;
+       }
+       if(num==0){
+           return 1;
+       }
+       while(num>0){
+           count++;
+           num/=10;
+       }
+       return count;
+    }
+
+}
