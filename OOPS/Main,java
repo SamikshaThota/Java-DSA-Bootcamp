@@ -1,0 +1,61 @@
+public class Main {
+    public static void main(String[] args) {
+        Human sami=new Human(21,"samiksha",234);
+        Human sam=new Human(22,"sam",1234);
+
+        System.out.println("the Details of Samiksha: ");
+        System.out.println(sami.age);
+        System.out.println(sami.name);
+        System.out.println(sami.salary);
+        System.out.println(Human.population);
+        System.out.println("the Details of Sam: ");
+        System.out.println(sam.age);
+        System.out.println(sam.name);
+        System.out.println(sam.salary);
+        System.out.println(Human.population);
+
+        fun();
+
+        System.out.println(Main.a+" "+Main.b);
+        Main.b+=23;
+        System.out.println(Main.a+" "+Main.b);
+
+        Main m=Main.getInstance();
+        Main m2=Main.getInstance();
+        System.out.println(m==m2);
+
+    }
+
+    //it is a non-static method
+    void greeting(){
+        System.out.println("i am a greeting");
+    }
+
+    //it is a static method where we can only use static data but we are using an non static data so we need to create object to it
+    static void fun(){
+        Main m=new Main();
+        m.greeting();
+    }
+
+    static int a=10;
+    static int b;
+
+    //it is static block that only run once
+    static{
+        System.out.println("Hey i am a static block");
+        b=a+3;
+    }
+
+    //singleton class
+    private static Main instance=null;
+    private Main(){
+        System.out.println("the singleton class is initialized");
+    }
+    public static Main getInstance(){
+        if(Main.instance==null){
+            instance=new Main();
+        }
+        return instance;
+    }
+
+}
